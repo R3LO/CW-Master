@@ -1,7 +1,4 @@
 import data
-import random
 
-data.get_callsign()
-print(data.get_callsign.__doc__)
-data.get_serial()
-print(data.get_serial.__doc__)
+calls_list = data.get_callsign(50)
+print(calls_list[0])
