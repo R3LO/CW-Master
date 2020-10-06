@@ -1,4 +1,5 @@
 import data
+import random
 
 data.get_callsign()
 print(data.get_callsign.__doc__)
