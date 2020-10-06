@@ -1,4 +1,5 @@
 import data
 
-calls_list = data.get_callsign(50)
-print(calls_list[0])
+for i in range(5):
+    print(i+1, data.get_callsign(50)[0], data.get_serial())
+

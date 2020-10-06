@@ -15,4 +15,6 @@ def get_callsign(n):
 
 def get_serial():
     """Return the random generated serial number."""
-    print('test')
+    serial_range = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'N', 'T']
+    serial = ''.join(random.sample(serial_range, 1) + random.sample(serial_range, 1) + random.sample(serial_range, 1))
+    return serial
