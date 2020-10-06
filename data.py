@@ -18,4 +18,11 @@ def get_serial():
     serial_range = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'N', 'T']
     serial_short = ''.join(random.sample(serial_range, 1) + random.sample(serial_range, 1) + random.sample(serial_range, 1))
     serial_full = serial_short
+    if 'A' in serial_short or 'N' in serial_short or 'T' in serial_short:
+        serial_full =  serial_full.replace('A', '1')
+        serial_full = serial_full.replace('N', '9')
+        serial_full = serial_full.replace('T', '0')
+    if int(serial_full) == 0:
+        serial_short = 'TT1'
+        serial_full = '001'
     return serial_short, serial_full
