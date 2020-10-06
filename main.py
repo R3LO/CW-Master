@@ -1,5 +1,5 @@
 import data
 
-for i in range(5):
-    print(i+1, data.get_callsign(50)[0], data.get_serial())
+# for i in range(5):
+print(data.get_serial(11))
 
