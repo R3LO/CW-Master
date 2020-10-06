@@ -29,4 +29,8 @@ def get_serial(n):
             serial_cut = serial_cut.replace('9', 'N')
         if '0' in serial_cut:
             serial_cut = serial_cut.replace('0', 'T')
+    # fix up wrong serial 000
+    if int(serial_full) == 0:
+        serial_full = "001"
+        serial_cut = "TT1"
     return serial_full, serial_cut
