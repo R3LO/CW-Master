@@ -8,8 +8,7 @@ def get_callsign(n):
     f = open('master.txt')
     callsigns = list(f.read().split('\n')) # callsign list
     # shuffle list
-    for i in range(5):
-        random.shuffle(callsigns)
+    random.shuffle(callsigns)
     return random.sample(callsigns, n) #return n-list
 
 
@@ -34,3 +33,23 @@ def get_serial(n):
         serial_full = "001"
         serial_cut = "TT1"
     return serial_full, serial_cut
+
+def check_callsign(call_sent, call_recd):
+    """Check out difrance between sent and receoved calls
+    Input: both callsign
+    Return: none
+    """
+    if call_sent == call_recd:
+        print('[+] ', call_sent, '\t = ', call_recd, end='')
+    else:
+        print('[-] ', call_sent, '\t ~ ', call_recd, '\t\t\tWrong symbols: ', end='')
+        for i in range(len(call_sent)):
+            try:
+                if call_sent[i] == call_recd[i]:
+                    pass
+                    # print(call1[i], ' You are right ', call_recd[i])
+                else:
+                    print(call_sent[i], end=' ')
+            except IndexError:
+                print(call_sent[i], end=' ')
+    print('')
