@@ -36,7 +36,7 @@ def get_serial(n):
 
 
 def check_callsign(call_sent, call_recd):
-    """Check out difrance between sent and receoved calls
+    """Check out difrancis between sent and receoved calls
     Input: both callsign
     Return: none
     """
@@ -61,4 +61,21 @@ def check_callsign(call_sent, call_recd):
     print('')
 
 def check_serial(serial_sent, serial_recd):
-    pass
+    """Check out difrancis between sent and receoved serials
+      Input: both serial
+      Return: none
+      """
+    print(serial_sent, serial_recd)
+    if int(serial_sent) == int(serial_recd):
+        print('There is no error in serial', serial_sent, ' = ', serial_sent)
+    else:
+        # TODO end check num by num
+        for i in range(len(serial_sent)):
+            try:
+                if serial_sent[i] == serial_recd[i]:
+                    pass
+                else:
+                    print(serial_sent[i], end=' ')
+            except IndexError:
+                print(serial_sent[i], end=' ')
+
