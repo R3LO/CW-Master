@@ -1,19 +1,12 @@
 import data
+import play
 
-# for i in range(5):
-# print(data.get_callsign(1), data.get_serial(3))
-# print(int(data.get_serial(3)[0]))
-
-# call1 = 'R3LOK'.upper().strip()
-# call2 = ' R3L'.upper().strip()
-# data.check_callsign(call1, call2)
-
-data.check_serial(data.get_serial(3)[0], '5600')
+def audio(message, wpm=35, fs=33, sps=48000, freq=900):
+    play.main(message, wpm, fs, sps, freq)
 
 
-
-
-
-
-
+for i in range(5):
+    msg = data.get_callsign(1)[0] + ' 5NN ' + data.get_serial(3)[1]
+    print(i+1, msg)
+    audio(msg)
 
