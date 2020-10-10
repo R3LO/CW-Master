@@ -34,22 +34,31 @@ def get_serial(n):
         serial_cut = "TT1"
     return serial_full, serial_cut
 
+
 def check_callsign(call_sent, call_recd):
     """Check out difrance between sent and receoved calls
     Input: both callsign
     Return: none
     """
     if call_sent == call_recd:
-        print('[+] ', call_sent, '\t = ', call_recd, end='')
+        print('[+] ', call_sent, '\t = ', call_recd, '\t\t\tWrong symbols: ---', end='')
     else:
-        print('[-] ', call_sent, '\t ~ ', call_recd, '\t\t\tWrong symbols: ', end='')
-        for i in range(len(call_sent)):
-            try:
-                if call_sent[i] == call_recd[i]:
-                    pass
-                    # print(call1[i], ' You are right ', call_recd[i])
-                else:
+
+        if call_recd in call_sent: # part of received call present in sent call
+            wrongs = call_sent.replace(call_recd, '')
+            print('[-] ', call_sent, '\t ~ ', call_recd, '\t\t\tWrong symbols: ', wrongs, end='')
+        else: # check symbol by symbol
+            print('[-] ', call_sent, '\t ~ ', call_recd, '\t\t\tWrong symbols: ', end='')
+            for i in range(len(call_sent)):
+                try:
+                    if call_sent[i] == call_recd[i]:
+                        pass
+                        # print(call1[i], ' You are right ', call_recd[i])
+                    else:
+                        print(call_sent[i], end=' ')
+                except IndexError:
                     print(call_sent[i], end=' ')
-            except IndexError:
-                print(call_sent[i], end=' ')
     print('')
+
+def check_serial(serial_sent, serial_recd):
+    pass
