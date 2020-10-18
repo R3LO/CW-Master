@@ -65,17 +65,18 @@ def check_serial(serial_sent, serial_recd):
       Input: both serial
       Return: none
       """
-    print(serial_sent, serial_recd)
+    # print(serial_sent, serial_recd)
     if int(serial_sent) == int(serial_recd):
-        print('There is no error in serial', serial_sent, ' = ', serial_sent)
+        print('There is no error in serial', serial_sent, ' = ', serial_sent, end='')
     else:
-        # TODO end check num by num
+        print('Wring serial: ', end='')
         for i in range(len(serial_sent)):
             try:
                 if serial_sent[i] == serial_recd[i]:
                     pass
                 else:
-                    print(serial_sent[i], end=' ')
+                    print(serial_sent[i], end='')
             except IndexError:
-                print(serial_sent[i], end=' ')
+                print(serial_sent[i], end='')
+    print(end='\n')
 
